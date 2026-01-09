@@ -44,7 +44,7 @@ fn run_as_user<F: FnOnce() -> T, T>(user: &pwd::Passwd, f: F) -> Result<T, io::E
 }
 
 #[derive(DBusError, Debug)]
-#[zbus(prefix = "com.system76.CosmicGreeter")]
+#[zbus(prefix = "dev.armyknifeGreeter")]
 enum GreeterError {
     #[zbus(error)]
     ZBus(zbus::Error),
@@ -54,7 +54,7 @@ enum GreeterError {
 
 struct GreeterProxy;
 
-#[zbus::interface(name = "com.system76.CosmicGreeter")]
+#[zbus::interface(name = "dev.armyknifeGreeter")]
 impl GreeterProxy {
     fn get_user_data(&mut self) -> Result<String, GreeterError> {
         // The pwd::Passwd method is unsafe (but not labelled as such) due to using global state (libc pwent functions).
@@ -140,7 +140,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .wrap_err("failed to initialize logger")?;
 
     let _conn = Builder::system()?
-        .name("com.system76.CosmicGreeter")?
+        .name("dev.armyknifeGreeter")?
         .serve_at("/com/system76/CosmicGreeter", GreeterProxy)?
         .build()
         .await?;

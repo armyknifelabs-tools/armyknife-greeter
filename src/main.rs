@@ -18,7 +18,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             }
             Some("--version") | Some("-v") => {
                 println!(
-                    "cosmic-greeter {} (git commit {})",
+                    "armyknife-greeter {} (git commit {})",
                     env!("CARGO_PKG_VERSION"),
                     env!("VERGEN_GIT_SHA")
                 );
@@ -30,7 +30,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     match pwd::Passwd::current_user() {
         Some(current_user) => match current_user.name.as_str() {
-            "cosmic-greeter" => greeter::main(),
+            "armyknife-greeter" => greeter::main(),
             _ => locker::main(current_user),
         },
         _ => Err("failed to determine current user".into()),
@@ -39,7 +39,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
 fn print_help(version: &str, git_rev: &str) {
     println!(
-        r#"cosmic-greeter {version} (git commit {git_rev})
+        r#"armyknife-greeter {version} (git commit {git_rev})
 System76 <info@system76.com>
 
 Designed for the COSMIC™ desktop environment, cosmic-greeter is a libcosmic

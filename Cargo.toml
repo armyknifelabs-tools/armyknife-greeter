@@ -1,5 +1,5 @@
 [package]
-name = "cosmic-greeter"
+name = "armyknife-greeter"
 version = "0.1.0"
 edition = "2024"
 
@@ -15,7 +15,7 @@ chrono = { version = "0.4", features = ["unstable-locales"] }
 cosmic-applets-config.workspace = true
 cosmic-bg-config.workspace = true
 cosmic-comp-config.workspace = true
-cosmic-config = { workspace = true, features = ["calloop", "macro"] }
+armyknife-config = { workspace = true, features = ["calloop", "macro"] }
 cosmic-greeter-config.workspace = true
 cosmic-greeter-daemon = { path = "daemon" }
 dirs = "6"
@@ -164,5 +164,5 @@ cosmic-protocols = { git = "https://github.com/pop-os/cosmic-protocols//" }
 cctk = { git = "https://github.com/pop-os/cosmic-protocols//", package = "cosmic-client-toolkit" }
 
 # libcosmic = { path = "../libcosmic" }
-# cosmic-config = { path = "../libcosmic/cosmic-config" }
-# cosmic-theme = { path = "../libcosmic/cosmic-theme" }
+# armyknife-config = { path = "../libcosmic/cosmic-config" }
+# armyknife-theme = { path = "../libcosmic/cosmic-theme" }

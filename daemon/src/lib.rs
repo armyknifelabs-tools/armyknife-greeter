@@ -159,7 +159,7 @@ impl UserData {
         }
         self.load_wallpapers_as_user();
 
-        match cosmic_config::Config::new("com.system76.CosmicComp", CosmicCompConfig::VERSION) {
+        match cosmic_config::Config::new("dev.armyknifeComp", CosmicCompConfig::VERSION) {
             Ok(config_handler) => {
                 match CosmicCompConfig::get_entry(&config_handler) {
                     Ok(config) => {
@@ -182,7 +182,7 @@ impl UserData {
         self.kdl_output_lists = xdg
             .get_state_home()
             .map(|mut s| {
-                s.push("cosmic-comp/outputs.ron");
+                s.push("armyknife-comp/outputs.ron");
                 let lists = randr::load_outputs(Some(&s));
                 lists
                     .into_iter()
@@ -191,7 +191,7 @@ impl UserData {
             })
             .unwrap_or_default();
 
-        match cosmic_config::Config::new("com.system76.CosmicAppletTime", TimeAppletConfig::VERSION)
+        match cosmic_config::Config::new("dev.armyknifeAppletTime", TimeAppletConfig::VERSION)
         {
             Ok(config_handler) => match TimeAppletConfig::get_entry(&config_handler) {
                 Ok(config) => {

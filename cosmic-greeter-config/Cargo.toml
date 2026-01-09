@@ -1,5 +1,5 @@
 [package]
-name = "cosmic-greeter-config"
+name = "armyknife-greeter-config"
 version = "0.1.0"
 edition = "2024"
 description = "Configuration for COSMIC Greeter"

@@ -71,8 +71,8 @@ use crate::{
 static USERNAME_ID: LazyLock<iced::id::Id> = LazyLock::new(|| iced::id::Id::new("username-id"));
 
 #[proxy(
-    interface = "com.system76.CosmicGreeter",
-    default_service = "com.system76.CosmicGreeter",
+    interface = "dev.armyknifeGreeter",
+    default_service = "dev.armyknifeGreeter",
     default_path = "/com/system76/CosmicGreeter"
 )]
 trait Greeter {
@@ -461,7 +461,7 @@ struct Accessibility {
 impl App {
     /// Applies a display configuration via `cosmic-randr`.
     fn exec_randr(&self, user_config: cosmic_randr_shell::List) -> Task<Message> {
-        let mut task = tokio::process::Command::new("cosmic-randr");
+        let mut task = tokio::process::Command::new("armyknife-randr");
         task.arg("kdl");
 
         cosmic::task::future::<(), ()>(async move {
@@ -1093,7 +1093,7 @@ impl cosmic::Application for App {
     type Message = Message;
 
     /// The unique application ID to supply to the window manager.
-    const APP_ID: &'static str = "com.system76.CosmicGreeter";
+    const APP_ID: &'static str = "dev.armyknifeGreeter";
 
     fn core(&self) -> &Core {
         &self.common.core
@@ -1284,7 +1284,7 @@ impl cosmic::Application for App {
                                 pointer_interactivity: true,
                                 anchor: Anchor::TOP | Anchor::LEFT | Anchor::BOTTOM | Anchor::RIGHT,
                                 output: IcedOutput::Output(output),
-                                namespace: "cosmic-locker".into(),
+                                namespace: "armyknife-locker".into(),
                                 size: Some((None, None)),
                                 margin: IcedMargin {
                                     top: 0,

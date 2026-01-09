@@ -1,4 +1,4 @@
-name := 'cosmic-greeter'
+name := 'armyknife-greeter'
 export APPID := 'com.system76.CosmicGreeter'
 
 rootdir := ''
@@ -61,7 +61,7 @@ check-json: (check '--message-format=json')
 
 mock:
     cargo build --release --example server
-    cosmic-comp {{cargo-target-dir}}/release/examples/server
+    armyknife-comp {{cargo-target-dir}}/release/examples/server
 
 # Run with debug logs
 run *args:
